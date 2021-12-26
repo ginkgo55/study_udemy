@@ -3,7 +3,9 @@ import React, { createContext, useReducer } from 'react';
 const initialState = {
   popular : [],
   related : [],
-  selected: {}
+  searched:[],
+  selected: {},
+  term: ''
 }
 
 const reducer = (state, action) => {
@@ -12,9 +14,13 @@ const reducer = (state, action) => {
       return { ...state, popular: action.payload.popular }
     case 'SET_RELATED':
       return { ...state, related: action.payload.related }
+      case 'SET_SEARCHED':
+      return { ...state, searched: action.payload.searched }
     case 'SET_SELECTED':
       return { ...state, selected: action.payload.selected}
       // ここのスプレッド構文はselectedでpopularのstateを上書きして消さないため。
+    case 'SET_TERM':
+      return { ...state, term: action.payload.term }
     default:
       return state
   }

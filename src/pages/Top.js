@@ -10,7 +10,6 @@ const Top = () => {
 
   useEffect(() => {
     fetchPopularData().then((res)=> {
-      console.log('data', res)
       setGlobalState({ type: 'SET_POPULAR', payload: {popular: res.data.items}})
     })
   // eslint-disable-next-line react-hooks/exhaustive-deps

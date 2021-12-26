@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### memo 
+- React.createContextで生成したContextをStoreとして管理する。
+- StoreにはReact.useReducerで生成した、StateとDispatchを格納する。
+- ContentのProvider Componentで囲み、Scopeを決定する。
+- Storeを利用する際は、React.useContextで取得する。
+- Storeに格納したStateから状態を読み取る。
+- Storeに格納したDispatchから状態を変更する。
+※非同期処理には対応出来ていないため、自前でなんとかしないといけない
