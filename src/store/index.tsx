@@ -1,6 +1,40 @@
 import React, { createContext, useReducer } from 'react';
 
-const initialState = {
+type VideoItem = {
+  id? : VideoId | any
+  snippet? : Snippet
+}
+
+type VideoId = {
+  videoId : string
+}
+
+type Snippet = {
+  title : string
+  description: string
+  thumbnails : Thumbnails
+}
+
+type Thumbnails = {
+  default: ThumbnailItem
+  medium : ThumbnailItem
+}
+
+type ThumbnailItem = {
+  url : string
+  width: number
+  height: number
+}
+
+
+type InitialState = {
+  popular : VideoItem[];
+  related : VideoItem[];
+  searched:VideoItem[];
+  selected: VideoItem;
+  term: string;
+}
+const initialState:InitialState = {
   popular : [],
   related : [],
   searched:[],
@@ -28,7 +62,7 @@ const reducer = (state, action) => {
 
 export const Store = createContext({
   globalState: initialState,
-  setGlobalState: () => null
+  setGlobalState: (...obj) => null
 })
 
 export const StoreProvider = ({children}) => {
